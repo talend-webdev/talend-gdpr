@@ -48,15 +48,24 @@ if(!is_admin()) {
     add_action('wp_footer', 'gdpr_cc_js');
 }
 
+
+/**
+ * Cookie Consent Content
+ *
+ * Output the content for the cookie consent banner
+ *
+ */
 function gdpr_cc_content() {
+    // TODO:  Allow setting of the cookie policy href in wp options
+
     wp_localize_script(
         'gdpr-cc-init',
         'gdprCcContent',
         [
-            'message' => __('This website uses cookies. By continuing to browse the site you agree to our use of cookies. Find out more.', 'gdpr-cc'),
+            'message' => __('This website uses cookies. By continuing to browse the site you agree to our use of cookies.', 'gdpr-cc'),
             'dismiss' => __('Ok, thanks', 'gdpr-cc'),
-            'link' => __('Find out more.', 'gdpr-cc')
-
+            'link' => __('Find out more.', 'gdpr-cc'),
+            'href' => '/cookie-policy/'
         ]
     );
 }
