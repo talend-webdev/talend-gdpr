@@ -7,6 +7,8 @@
  * Version: 0.1
  * Author: Matt Cascardi
  * Author URI: https://www.talend.com
+ * Text Domain: gdpr-cc
+ * Domain Path: /languages
  * @package Talend
  * @subpackage GDPR
  */
@@ -41,8 +43,18 @@ function gdpr_cc_init() {
     wp_enqueue_script('gdpr-cc-init');
 }
 
+/**
+ * Load plugin textdomain.
+ *
+ * @since 1.0.0
+ */
+function gdpr_textdomain() {
+  load_plugin_textdomain( 'gdpr-cc', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+}
+
 
 if(!is_admin()) {
+    add_action('plugins_loaded', 'gdpr_textdomain' );
     add_action('wp_footer', 'gdpr_cc_content');
     add_action('wp_footer', 'gdpr_cc_init');
     add_action('wp_footer', 'gdpr_cc_js');
@@ -56,13 +68,16 @@ if(!is_admin()) {
  *
  */
 function gdpr_cc_content() {
-    // TODO:  Allow setting of the cookie policy href in wp options
+    // TODO: Allow setting of the cookie policy href in wp options
 
     wp_localize_script(
         'gdpr-cc-init',
         'gdprCcContent',
         [
-            'message' => __('This website uses cookies. By continuing to browse the site you agree to our use of cookies.', 'gdpr-cc'),
+            'message' => __(
+                'This website uses cookies. By continuing to browse the site you agree to our use of cookies.',
+                'gdpr-cc'
+            ),
             'dismiss' => __('Ok, thanks', 'gdpr-cc'),
             'link' => __('Find out more.', 'gdpr-cc'),
             'href' => '/cookie-policy/'
