@@ -4,7 +4,7 @@
  * Plugin URI: https://www.talend.com
  * Github Plugin URI: https://github.com/talend-webdev/talend-gdpr
  * Description: GDPR Consent Tools for WP
- * Version: 0.1
+ * Version: 0.2
  * Author: Matt Cascardi
  * Author URI: https://www.talend.com
  * Text Domain: gdpr-cc
@@ -13,7 +13,7 @@
  * @subpackage GDPR
  */
 
-define('GDPR_VERSION', '0.1');
+define('GDPR_VERSION', '0.2');
 
 function gdpr() {
     wp_register_script(
