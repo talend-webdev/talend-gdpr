@@ -48,6 +48,14 @@ if (!class_exists('TalendGDPR')) {
                 true
             );
             wp_register_style(
+                'gdpr-cc-cookie',
+                '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js',
+                [],
+                '2.2.0',
+                true
+            );
+
+            wp_register_style(
                 'gdpr-cc-css',
                 '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css',
                 [],
@@ -55,6 +63,7 @@ if (!class_exists('TalendGDPR')) {
                 'all'
             );
         }
+
 
         public function enqueue_scripts()
         {
