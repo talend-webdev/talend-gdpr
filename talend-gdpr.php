@@ -4,7 +4,7 @@
  * Plugin URI: https://www.talend.com
  * Github Plugin URI: https://github.com/talend-webdev/talend-gdpr
  * Description: GDPR Consent Tools for WP
- * Version: 0.3
+ * Version: 0.4
  * Author: Matt Cascardi
  * Author: Niklas Dahlqvist
  * Author URI: https://www.talend.com
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     die('No direct access allowed');
 }
 
-define('GDPR_VERSION', '0.3');
+define('GDPR_VERSION', '0.4');
 
 if (!class_exists('TalendGDPR')) {
     class TalendGDPR
@@ -63,7 +63,6 @@ if (!class_exists('TalendGDPR')) {
                 'all'
             );
         }
-
 
         public function enqueue_scripts()
         {
