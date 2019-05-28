@@ -47,7 +47,7 @@ if (!class_exists('TalendGDPR')) {
                 '3.1.0',
                 true
             );
-            wp_register_style(
+            wp_register_script(
                 'gdpr-cc-cookie',
                 '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js',
                 [],
@@ -68,6 +68,7 @@ if (!class_exists('TalendGDPR')) {
         public function enqueue_scripts()
         {
             wp_enqueue_script('gdpr-cc-js');
+            wp_enqueue_script('gdpr-cc-cookie');
             wp_enqueue_style('gdpr-cc-css');
         }
 
@@ -83,18 +84,18 @@ if (!class_exists('TalendGDPR')) {
 
             wp_localize_script(
                 'gdpr-cc-init',
-                'gdprCcContent',
+                'gdpr',
                 [
                     'message' => __(
                         'This website uses cookies. By continuing to browse the site you agree to our use of cookies.',
                         'talend-gdpr'
                     ),
                     'dismiss' => __('Ok, thanks', 'talend-gdpr'),
+                    'deny' => __('Decline', 'talend-gdpr'),
                     'link' => __('Find out more.', 'talend-gdpr'),
                     'href' => '/cookie-policy/'
                 ]
             );
-
             wp_enqueue_script('gdpr-cc-init');
         }
     }
