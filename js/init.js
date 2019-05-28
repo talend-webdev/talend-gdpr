@@ -11,17 +11,26 @@
 // });
 
 function logCookies(message) {
-    var c = Cookies.get('', { path: '', domain: 'app-abk.marketo.com' });
+	var c = Cookies.get('cookieconsent_status', { path: '', domain: 'talend.com' });
     console.log(message + ' cookies');
-    console.dir(c);
+    //console.dir(c);
 }
 
-gdpr.enablCookies = function() {
-    logCookies('enable');
-};
+function enableCookies() {
+	logCookies('enable');
+}
 
-gdpr.disableCookies = function() {
-    logCookies('disable');
+function disableCookies() {
+	logCookies('disable');
+	var c = Cookies.get('cookieconsent_status', { path: '', domain: 'talend.com' });
+
+	if(c === 'deny') {
+		Object.keys(Cookies.get()).forEach(function(cookieName) {
+			if(cookieName !== 'cookieconsent_status') {
+				Cookies.remove(cookieName);
+			}
+		});
+	}
 };
 
 window.addEventListener("load", function(){
@@ -49,29 +58,35 @@ window.addEventListener("load", function(){
 		var type = this.options.type;
 		var didConsent = this.hasConsented();
 		if (type == 'opt-in' && didConsent) {
-		    logCookies('enable');
+			logCookies('enable');
+			enableCookies();
 		}
 		if (type == 'opt-out' && !didConsent) {
-		    logCookies('disable');
+			logCookies('disable');
+			disableCookies();
 		}
 	    },
 	    onStatusChange: function(status, chosenBefore) {
 		var type = this.options.type;
 		var didConsent = this.hasConsented();
 		if (type == 'opt-in' && didConsent) {
-		    logCookies('enable');
+			logCookies('enable');
+			enableCookies();
 		}
 		if (type == 'opt-out' && !didConsent) {
-		    logCookies('disable');
+			logCookies('disable');
+			disableCookies();
 		}
 	    },
 	    onRevokeChoice: function() {
 		var type = this.options.type;
 		if (type == 'opt-in') {
-		    logCookies('disable');
+			logCookies('disable');
+			disableCookies();
 		}
 		if (type == 'opt-out') {
-		    logCookies('enable');
+			logCookies('enable');
+			enableCookies();
 		}
 	    }
 	});
