@@ -9,21 +9,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-05-06T22:43:08+00:00\n"
-"PO-Revision-Date: 2019-05-06 16:02-0700\n"
-"X-Generator: Poedit 2.2.1\n"
+"PO-Revision-Date: 2019-06-07 13:52-0700\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Domain: talend-gdpr\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language: ja\n"
 
-#: talend-gdpr.php:79
+#: talend-gdpr.php:88
 msgid "This website uses cookies. By continuing to browse the site you agree to our use of cookies."
 msgstr "このウェブサイトはクッキーを使用します。サイトの閲覧を続けることで、cookie の 使用に同意したことになります。"
 
-#: talend-gdpr.php:83
+#: talend-gdpr.php:92
 msgid "Ok, thanks"
 msgstr "同意します"
 
-#: talend-gdpr.php:84
+#: talend-gdpr.php:93
+msgid "Decline"
+msgstr "拒否"
+
+#: talend-gdpr.php:94
 msgid "Find out more."
 msgstr "詳細はこちらをご覧ください。"

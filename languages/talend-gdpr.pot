@@ -15,14 +15,18 @@ msgstr ""
 "X-Domain: talend-gdpr\n"
 
 
-#: talend-gdpr.php:79
+#: talend-gdpr.php:88
 msgid "This website uses cookies. By continuing to browse the site you agree to our use of cookies."
 msgstr ""
 
-#: talend-gdpr.php:83
+#: talend-gdpr.php:92
 msgid "Ok, thanks"
 msgstr ""
 
-#: talend-gdpr.php:84
+#: talend-gdpr.php:93
+msgid "Decline"
+msgstr ""
+
+#: talend-gdpr.php:94
 msgid "Find out more."
 msgstr ""
