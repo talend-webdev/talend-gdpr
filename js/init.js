@@ -31,7 +31,7 @@ window.addEventListener("load", function(){
 	{
 	    "content": {
 		"message" : gdpr.message,
-		"dismiss" : gdpr.dismiss,
+		"allow" : gdpr.dismiss,
 		"deny" : gdpr.deny,
 		"link" : gdpr.link,
 		"href" : gdpr.href
