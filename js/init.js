@@ -47,8 +47,11 @@ window.addEventListener("load", function(){
 		}
 	    },
 	    "type" : "opt-out",
-	    onPopupOpen: function() {		 
+	    onPopupOpen: function() {
 		const message = document.getElementById('cookieconsent:desc');
+		if (message.querySelector('p') != null) {
+		    return;
+		}
 		let privacy = document.createElement('p');
 		privacy.innerHTML = window.gdpr.privacy;
 		message.appendChild(privacy);
