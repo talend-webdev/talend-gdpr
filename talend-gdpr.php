@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     die('No direct access allowed');
 }
 
-define('GDPR_VERSION', '0.4');
+define('GDPR_VERSION', '0.5');
 
 if (!class_exists('TalendGDPR')) {
     class TalendGDPR
@@ -86,9 +86,9 @@ if (!class_exists('TalendGDPR')) {
                 'talend-gdpr'
             );
 
-            $message_text .= sprintf(
+            $privacy_update .= sprintf(
                 __(
-                    '<br>Talend Privacy Notice has been updated! Please consult it <a href="%s">here</a>.',
+                    'Talend Privacy Notice has been updated! Please consult it <a href="%s">here</a>.',
                     'talend-gdpr'
                 ), '/contacts-privacy-policy/'
             );
@@ -98,6 +98,7 @@ if (!class_exists('TalendGDPR')) {
                 'gdpr',
                 [
                     'message' => $message_text,
+                    'privacy' => $privacy_update,
                     'dismiss' => __('Ok, thanks', 'talend-gdpr'),
                     'deny' => __('Decline', 'talend-gdpr'),
                     'link' => __('Find out more.', 'talend-gdpr'),
