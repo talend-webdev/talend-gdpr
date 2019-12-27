@@ -81,14 +81,23 @@ if (!class_exists('TalendGDPR')) {
                 true
             );
 
+            $message_text  =  __(
+                'This website uses cookies. By continuing to browse the site you agree to our use of cookies.',
+                'talend-gdpr'
+            );
+
+            $message_text .= sprintf(
+                __(
+                    'Talend Privacy Notice has been updated! Please consult it <a href="%s">here</a>.',
+                    'talend-gdpr'
+                ), '/contacts-privacy-policy/'
+            );
+
             wp_localize_script(
                 'gdpr-cc-init',
                 'gdpr',
                 [
-                    'message' => __(
-                        'This website uses cookies. By continuing to browse the site you agree to our use of cookies.',
-                        'talend-gdpr'
-                    ),
+                    'message' => $message_text,
                     'dismiss' => __('Ok, thanks', 'talend-gdpr'),
                     'deny' => __('Decline', 'talend-gdpr'),
                     'link' => __('Find out more.', 'talend-gdpr'),
