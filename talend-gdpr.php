@@ -4,7 +4,7 @@
  * Plugin URI: https://www.talend.com
  * Github Plugin URI: https://github.com/talend-webdev/talend-gdpr
  * Description: GDPR Consent Tools for WP
- * Version: 0.4
+ * Version: 0.5
  * Author: Matt Cascardi
  * Author: Niklas Dahlqvist
  * Author URI: https://www.talend.com
@@ -42,24 +42,24 @@ if (!class_exists('TalendGDPR')) {
         {
             wp_register_script(
                 'gdpr-cc-js',
-                '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js',
+                '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js',
                 [],
-                '3.1.0',
+                '3.1.1',
                 true
             );
             wp_register_script(
                 'gdpr-cc-cookie',
-                '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js',
+                '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js',
                 [],
-                '2.2.0',
+                '2.2.1',
                 true
             );
 
             wp_register_style(
                 'gdpr-cc-css',
-                '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css',
+                '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css',
                 [],
-                '3.1.0',
+                '3.1.1',
                 'all'
             );
         }
