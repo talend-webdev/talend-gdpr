@@ -88,7 +88,7 @@ if (!class_exists('TalendGDPR')) {
 
             $message_text .= sprintf(
                 __(
-                    'Talend Privacy Notice has been updated! Please consult it <a href="%s">here</a>.',
+                    '<br>Talend Privacy Notice has been updated! Please consult it <a href="%s">here</a>.',
                     'talend-gdpr'
                 ), '/contacts-privacy-policy/'
             );
