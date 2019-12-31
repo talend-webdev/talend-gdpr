@@ -53,8 +53,7 @@ window.addEventListener("load", function(){
 		    return;
 		}
 		let privacy = document.createElement('p');
-		privacy.innerHTML = '<strong>' + window.gdpr.privacy + '</strong>';
-		privacy.style.color = 'red';
+		privacy.innerHTML = window.gdpr.privacy;
 		message.appendChild(privacy);
 	    },
 	    onInitialise: function (status) {
