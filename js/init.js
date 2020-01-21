@@ -31,6 +31,7 @@ window.addEventListener("load", function(){
 	{
 	    "content": {
 		"message" : gdpr.message,
+		"privacy" : gdpr.privacy,
 		"allow" : gdpr.dismiss,
 		"deny" : gdpr.deny,
 		"link" : gdpr.link,
@@ -46,9 +47,18 @@ window.addEventListener("load", function(){
 		}
 	    },
 	    "type" : "opt-out",
+	    onPopupOpen: function() {
+		const message = document.getElementById('cookieconsent:desc');
+		if (message.querySelector('p') != null) {
+		    return;
+		}
+		let privacy = document.createElement('p');
+		privacy.innerHTML = '<strong>' + window.gdpr.privacy + '</strong>';
+		message.appendChild(privacy);
+	    },
 	    onInitialise: function (status) {
-		var type = this.options.type;
-		var didConsent = this.hasConsented();
+		const type = this.options.type;
+		const didConsent = this.hasConsented();
 		if (type == 'opt-in' && didConsent) {
 		    enableCookies();
 		}
@@ -76,4 +86,5 @@ window.addEventListener("load", function(){
 		}
 	    }
 	});
+
 });

@@ -4,7 +4,7 @@
  * Plugin URI: https://www.talend.com
  * Github Plugin URI: https://github.com/talend-webdev/talend-gdpr
  * Description: GDPR Consent Tools for WP
- * Version: 0.4
+ * Version: 0.5
  * Author: Matt Cascardi
  * Author: Niklas Dahlqvist
  * Author URI: https://www.talend.com
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
     die('No direct access allowed');
 }
 
-define('GDPR_VERSION', '0.4');
+define('GDPR_VERSION', '0.5');
 
 if (!class_exists('TalendGDPR')) {
     class TalendGDPR
@@ -42,24 +42,24 @@ if (!class_exists('TalendGDPR')) {
         {
             wp_register_script(
                 'gdpr-cc-js',
-                '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js',
+                '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js',
                 [],
-                '3.1.0',
+                '3.1.1',
                 true
             );
             wp_register_script(
                 'gdpr-cc-cookie',
-                '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js',
+                '//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js',
                 [],
-                '2.2.0',
+                '2.2.1',
                 true
             );
 
             wp_register_style(
                 'gdpr-cc-css',
-                '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css',
+                '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css',
                 [],
-                '3.1.0',
+                '3.1.1',
                 'all'
             );
         }
@@ -81,16 +81,17 @@ if (!class_exists('TalendGDPR')) {
                 true
             );
 
-            $message_text  =  __(
+            $message_text = __(
                 'This website uses cookies. By continuing to browse the site you agree to our use of cookies.',
                 'talend-gdpr'
             );
 
-            $message_text .= sprintf(
+            $privacy_update = sprintf(
                 __(
                     'Talend Privacy Notice has been updated! Please consult it <a href="%s">here</a>.',
                     'talend-gdpr'
-                ), '/contacts-privacy-policy/'
+                ),
+                '/contacts-privacy-policy/'
             );
 
             wp_localize_script(
@@ -98,6 +99,7 @@ if (!class_exists('TalendGDPR')) {
                 'gdpr',
                 [
                     'message' => $message_text,
+                    'privacy' => $privacy_update,
                     'dismiss' => __('Ok, thanks', 'talend-gdpr'),
                     'deny' => __('Decline', 'talend-gdpr'),
                     'link' => __('Find out more.', 'talend-gdpr'),
