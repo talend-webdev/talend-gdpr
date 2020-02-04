@@ -54,7 +54,7 @@ window.addEventListener("load", function(){
 		}
 		let privacy = document.createElement('p');
 		privacy.innerHTML = '<strong>' + window.gdpr.privacy + '</strong>';
-		message.appendChild(privacy);
+		//message.appendChild(privacy);
 	    },
 	    onInitialise: function (status) {
 		const type = this.options.type;
